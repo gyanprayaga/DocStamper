@@ -1,18 +1,26 @@
 # DocStamper
 
-DocStamper is a simple, open-source tool for sorting, Bates stamping, and packaging documents.
+DocStamper is a simple, open-source tool for sorting, Bates stamping, and
+packaging documents.
 
-These Python scripts were original created to serve a client who needed to prepare documents for a subpoena. Below is a brief description of what each script does.
+These Python scripts were original created to serve a client who needed to
+prepare documents for a subpoena. Below is a brief description of what each
+script does.
 
-`script.py`
-This script takes files in PDF format and maps them into "production folders". Then, these PDFs are chronologically ordered, spliced into TIFF images, and Bates stamped. Finally, a load file in DAT and OPT formats is created to help the recipient load the documents into their document management software.
+`script.py` This script takes files in PDF format and maps them into "production
+folders". Then, these PDFs are chronologically ordered, spliced into TIFF
+images, and Bates stamped. Finally, a load file in DAT and OPT formats is
+created to help the recipient load the documents into their document management
+software.
 
-`convert_to_pdf.py`
-This script converts any DOCX files in a given directory to PDF. It checks which files already have PDF counterparts and skips them, so you don't have to worry about overriding any files.
+`convert_to_pdf.py` This script converts any DOCX files in a given directory to
+PDF. It checks which files already have PDF counterparts and skips them, so you
+don't have to worry about overriding any files.
 
 ## Example use case
 
-Say you receive a subpoena asking you to send some documents for a contract you worked on with a client. 
+Say you receive a subpoena asking you to send some documents for a contract you
+worked on with a client.
 
 Let's say you have a filesystem of structure:
 
@@ -50,6 +58,7 @@ BUNDLE_B/
    JOE_0007.tiff
    JOE_0008.tiff
 ```
+
 where `JOE` is the moniker the agency assigns to your production of documents.
 
 Here's how you do that:
@@ -57,12 +66,37 @@ Here's how you do that:
 ## Usage
 
 ### Configuration
-Make sure to modify the `settings.py` with the corresponding values. Here are the settings you'll want to change:
+
+Make sure to modify the `settings.py` with the corresponding values. Here are
+the settings you'll want to change:
 
 - `INPUT_DIRECTORY`: Set this to directory where your files are kept
-- `OUTPUT_DIRECTORY`: Set this to the directory where the bundles should be output
-- `FILE_TO_BUNDLE_MAP`: Configure how you want each file to mapped from your file system into the bundle
+- `OUTPUT_DIRECTORY`: Set this to the directory where the bundles should be
+  output
+- `FILE_TO_BUNDLE_MAP`: Configure how you want each file to mapped from your
+  file system into the bundle
 
+### Load files
+
+The load files are created in two formats: OPT and DAT.
+
+The Concordance DAT format used in the DAT file follows a similar schema to a
+CSV file but instead of using comma delimiters, it uses the registered trademark
+symbol. This is to avoid confusion when there are quotes in the actual content.
+
+Concordance Load File:
+
+---
+
+A text-delimited file ending with the file extension DAT. The Concordance load
+file references one document per line, and includes document metadata.
+
+Opticon Cross-Reference File:
+
+---
+
+A text-delimited file ending with the extension OPT. The Opticon cross-reference
+file references one Bates number per line.
 
 ### Running
 
