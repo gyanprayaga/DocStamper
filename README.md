@@ -76,9 +76,18 @@ the settings you'll want to change:
 - `FILE_TO_BUNDLE_MAP`: Configure how you want each file to mapped from your
   file system into the bundle
 
-### Load files
+### Running
 
-The load files are created in two formats: OPT and DAT.
+1. Make sure to modify the `settings.py` as needed.
+2. Run `convert_to_pdf.py` to convert any DOCX files to PDFs.
+3. Run `script.py`.
+4. Enjoy your bundled, Bates stamped TIFF files!
+
+## Loadfiles
+
+What are load files? Well, the are files used by document management software to
+extract and process large numbers of documents quickly. Most document processing
+software uses load files created in two formats: OPT and DAT.
 
 The Concordance DAT format used in the DAT file follows a similar schema to a
 CSV file but instead of using comma delimiters, it uses the registered trademark
@@ -97,13 +106,6 @@ Opticon Cross-Reference File:
 
 A text-delimited file ending with the extension OPT. The Opticon cross-reference
 file references one Bates number per line.
-
-### Running
-
-1. Make sure to modify the `settings.py` as needed.
-2. Run `convert_to_pdf.py` to convert any DOCX files to PDFs.
-3. Run `script.py`.
-4. Enjoy your bundled, Bates stamped TIFF files!
 
 ---
 
