@@ -93,19 +93,13 @@ The Concordance DAT format used in the DAT file follows a similar schema to a
 CSV file but instead of using comma delimiters, it uses the registered trademark
 symbol. This is to avoid confusion when there are quotes in the actual content.
 
-Concordance Load File:
+**Concordance Load File:** A text-delimited file ending with the file extension
+DAT. The Concordance load file references one document per line, and includes
+document metadata.
 
----
-
-A text-delimited file ending with the file extension DAT. The Concordance load
-file references one document per line, and includes document metadata.
-
-Opticon Cross-Reference File:
-
----
-
-A text-delimited file ending with the extension OPT. The Opticon cross-reference
-file references one Bates number per line.
+**Opticon Cross-Reference File:** A text-delimited file ending with the
+extension OPT. The Opticon cross-reference file references one Bates number per
+line.
 
 ---
 
